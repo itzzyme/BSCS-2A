@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  background-color: #b51917;
+  color: white;
+}
+
+header {
+  background-color: black;
+  padding: 15px 40px;
+}
