@@ -14,3 +14,92 @@ header {
   background-color: black;
   padding: 15px 40px;
 }
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 40px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 80px;
+}
+
+.left-content .intro {
+  /*font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;*/
+   font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  flex-direction: column;  /* Changed till bottom */
+  align-items: center;        /* Center horizontally */
+  justify-content: center;    /* Center vertically */
+  text-align: center;
+}
+
+.left-content h1 {
+  background-color: #d26565;
+  padding: 30px 40px;
+  border-radius: 80px;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 40px; 
+}
+
+.role-button {
+  display: flex;
+  align-items: center;
+  border: 5px solid black;
+  width: fit-content;
+}
+
+.role-text {
+  background-color: #a31f1d;
+  padding: 15px 30px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.arrow {
+  background-color: white;
+  color: black;
+  padding: 15px 25px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.right-content .circle-background {
+  background-color: #00b7bd;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: -20px 20px 0 #8e1614;
+}
+
+.right-content img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
