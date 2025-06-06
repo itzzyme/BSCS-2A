@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  
+    
     initializeNavigation();
     initializeScrollAnimations();
     initializeIntersectionObserver();
@@ -8,19 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMouseEffects();
 });
 
-
 function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navigation = document.querySelector('.main-navigation');
-    
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
@@ -39,7 +37,20 @@ function initializeNavigation() {
             navigation.style.boxShadow = 'none';
         }
     });
-    
+
+    // Add the hamburger menu toggle functionality
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks) {
+                navLinks.classList.toggle('active');
+                
+                // Toggle aria-expanded attribute for accessibility
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+            }
+        });
+    }
 
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', function() {
@@ -51,7 +62,7 @@ function initializeNavigation() {
                 current = section.getAttribute('id');
             }
         });
-        
+
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
@@ -60,7 +71,6 @@ function initializeNavigation() {
         });
     });
 }
-
 
 function initializeScrollAnimations() {
     const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right');
@@ -302,20 +312,20 @@ const throttledScrollHandler = throttle(function() {
 
 window.addEventListener('scroll', throttledScrollHandler);
 
-// Accessibility enhancements
+
 document.addEventListener('keydown', function(e) {
     
     if (e.key === 'Escape') {
         document.activeElement.blur();
     }
     
-    // Enter key for button-like elements
+  
     if (e.key === 'Enter' && e.target.classList.contains('hire-btn')) {
         e.target.click();
     }
 });
 
-// Print styles injection
+
 const printStyle = document.createElement('style');
 printStyle.textContent = `
     @media print {
